@@ -1,0 +1,174 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  flex-direction: column;
+}
+
+.slide {
+  display: none;
+  text-align: center;
+}
+
+.slide.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fade 1s ease-in-out;
+}
+
+.slide p {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  max-width: 700px;
+  margin-top: 20px;
+}
+
+.slide-img {
+  max-width: 250px;
+  max-height: 250px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.page-number {
+  margin-top: 15px;
+  font-size: 1rem;
+  color: #aaa;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.controls {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.controls button {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  margin: 0 15px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+.controls button:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('https://cdn.pixabay.com/photo/2017/08/30/07/52/stars-2695563_960_720.jpg') no-repeat center center/cover;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.slide {
+  display: none;
+  font-size: 1.5rem;
+  line-height: 1.8;
+}
+
+.slide.active {
+  display: block;
+  animation: fade 1s ease-in-out;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.controls {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.controls button {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  margin: 0 15px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+.controls button:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+/* Star background */
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('https://cdn.pixabay.com/photo/2017/08/30/07/52/stars-2695563_960_720.jpg') no-repeat center center/cover;
+  opacity: 0.2;
+  z-index: -1;
+}
+
+@media screen and (max-width: 600px) {
+  .slide p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .slide-img {
+    max-width: 200px;
+    max-height: 200px;
+  }
+
+  .controls button {
+    font-size: 1.5rem;
+    padding: 8px 16px;
+  }
+}

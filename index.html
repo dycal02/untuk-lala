@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Untuk Sayangku, Lala</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <audio autoplay loop>
+    <source src="music/bg.mp3" type="audio/mpeg" />
+  </audio>
+
+  <div class="stars"></div>
+
+  <div class="container">
+    <div class="slide active">
+      <img src="img/1.jpg" class="slide-img" alt="Slide 1" />
+       <p>helloo there lalaa , this is dikall<br> i hope u read this till end <br> i didn't ask for forgiveness i just want to tell what my heart want to say 😊</p>
+<div class="page-number">Slide 1 / 5</div>
+    </div>
+    <div class="slide">
+      <img src="img/2.gif" class="slide-img" alt="Slide 2" />
+      <p>kenapa kita harus putus?❤️‍🩹 <br>1. kita beda agama by, aku tau ini sulit tapi aku tetap bertahan dengan perbedaan kita 😊<br>2. ayang berhak dapatin cowok yang lebih dari aku... u got pretty smile pretty eyes and i think i didn't deserve it<br>3. youre so perfect… dan aku malah nyakitin lala terus terus buat lala kecewa dengan semua perlakuan aku ke lala yang buat hancur<br>4. i just doing the same mistake again n again</p>
+      <div class="page-number">Slide 2 / 5</div>
+    </div>
+    <div class="slide">
+      <img src="img/3.gif" class="slide-img" alt="Slide 3" />
+      <p>alasan aku tetap bertahan<br>1. aku pengen kamu ngerasain cinta aku sepenuhnya walau sampai sekarang aku masih belajar<br>2.aku berjuang agar kita  bisa sebanding<br>3. karena aku cuma cinta dan suka sama kamu gaada alasan lain i just love you so much <br >4. aku pengen jadi pria yg baik untuk lala</p>
+      <div class="page-number">Slide 3 / 5</div>
+    </div>
+    <div class="slide">
+      <img src="img/4.jpg" class="slide-img" alt="Slide 4" />
+      <p>aku sadar aku sering gagal nepatin omongan<br>aku cuma pengen lala ngerti... aku gak main-main<br>kalau lala udah capek, aku ngerti<br>tapi kalau lala masih punya ruang percaya...<br>aku masih di sini, nunggu lala sembuh dan perlahan percaya sama aku lagi</p>
+      <div class="page-number">Slide 4 / 5</div>
+    </div>
+    <div class="slide">
+      <img src="img/5.jpg" class="slide-img" alt="Slide 5" />
+      <p>i love you so much ,and i miss you by<br>dan aku masih pengen perbaikin ini…<br>bareng-bareng 💕</p>
+      <div class="page-number">Slide 5 / 5</div>
+    </div>
+    <div class="controls">
+      <button onclick="prevSlide()">⟨</button>
+      <button onclick="nextSlide()">⟩</button>
+    </div>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+    }
+
+    function nextSlide() {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+
+    function prevSlide() {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    }
+  </script>
+</body>
+</html>
