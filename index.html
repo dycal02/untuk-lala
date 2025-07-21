@@ -7,17 +7,23 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <audio autoplay loop>
-    <source src="music/bg.mp3" type="audio/mpeg" />
+  <!-- Audio background dengan autoplay + muted agar bisa di-unmute setelah interaksi -->
+  <audio id="bgmusic" autoplay loop muted playsinline>
+    <source src="music/cihuy.m4a" type="audio/mpeg" />
   </audio>
+
+  <!-- Tambahkan tombol manual (opsional) -->
+  <button onclick="unmuteMusic()" style="position: fixed; top: 10px; right: 10px; z-index: 999;">
+    🎵 Play Music
+  </button>
 
   <div class="stars"></div>
 
   <div class="container">
     <div class="slide active">
       <img src="img/1.jpg" class="slide-img" alt="Slide 1" />
-       <p>helloo there lalaa , this is dikall<br> i hope u read this till end <br> i didn't ask for forgiveness i just want to tell what my heart want to say 😊</p>
-<div class="page-number">Slide 1 / 5</div>
+      <p>helloo there lalaa , this is dikall<br> i hope u read this till end <br> i didn't ask for forgiveness i just want to tell what my heart want to say 😊</p>
+      <div class="page-number">Slide 1 / 5</div>
     </div>
     <div class="slide">
       <img src="img/2.gif" class="slide-img" alt="Slide 2" />
@@ -26,7 +32,7 @@
     </div>
     <div class="slide">
       <img src="img/3.gif" class="slide-img" alt="Slide 3" />
-      <p>alasan aku tetap bertahan<br>1. aku pengen kamu ngerasain cinta aku sepenuhnya walau sampai sekarang aku masih belajar<br>2.aku berjuang agar kita  bisa sebanding<br>3. karena aku cuma cinta dan suka sama kamu gaada alasan lain i just love you so much <br >4. aku pengen jadi pria yg baik untuk lala</p>
+      <p>alasan aku tetap bertahan<br>1. aku pengen kamu ngerasain cinta aku sepenuhnya walau sampai sekarang aku masih belajar<br>2.aku berjuang agar kita  bisa sebanding<br>3. karena aku cuma cinta dan suka sama kamu gaada alasan lain i just love you so much <br>4. aku pengen jadi pria yg baik untuk lala</p>
       <div class="page-number">Slide 3 / 5</div>
     </div>
     <div class="slide">
@@ -39,13 +45,15 @@
       <p>i love you so much ,and i miss you by<br>dan aku masih pengen perbaikin ini…<br>bareng-bareng 💕</p>
       <div class="page-number">Slide 5 / 5</div>
     </div>
+
     <div class="controls">
-      <button onclick="prevSlide()">⟨</button>
-      <button onclick="nextSlide()">⟩</button>
+      <button onclick="prevSlide(); unmuteMusic()">⟨</button>
+      <button onclick="nextSlide(); unmuteMusic()">⟩</button>
     </div>
   </div>
 
   <script>
+    const audio = document.getElementById("bgmusic");
     const slides = document.querySelectorAll('.slide');
     let current = 0;
 
@@ -58,11 +66,20 @@
     function nextSlide() {
       current = (current + 1) % slides.length;
       showSlide(current);
+      unmuteMusic();
     }
 
     function prevSlide() {
       current = (current - 1 + slides.length) % slides.length;
       showSlide(current);
+      unmuteMusic();
+    }
+
+    function unmuteMusic() {
+      audio.muted = false;
+      audio.play().catch((e) => {
+        console.log("Autoplay blocked, waiting for interaction...");
+      });
     }
   </script>
 </body>
